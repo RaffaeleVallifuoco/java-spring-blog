@@ -1,1 +1,1 @@
-# java-spring-blog
+A simple blog web page using JAVA & Spring
