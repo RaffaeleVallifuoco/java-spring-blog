@@ -1,10 +1,21 @@
 package it.eaffo.java_spring_blog.model;
 
+import java.util.List;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -38,7 +49,31 @@ public class User {
     @Column(name = "photo")
     private String photoPath;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Post> post;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonBackReference
+    private Set<role> role;
+
     // GETTERS & SETTERS
+
+    public List<Post> getPost() {
+        return post;
+    }
+
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
+
+    public Set<role> getRole() {
+        return role;
+    }
+
+    public void setRole(Set<role> role) {
+        this.role = role;
+    }
 
     public Integer getId() {
         return Id;
