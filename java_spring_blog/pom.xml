@@ -8,7 +8,7 @@
 		<version>3.3.8-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>it.eaffo</groupId>
+	<groupId>it.raffo</groupId>
 	<artifactId>java_spring_blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>java_spring_blog</name>
