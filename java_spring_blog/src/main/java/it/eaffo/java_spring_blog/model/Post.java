@@ -2,6 +2,8 @@ package it.eaffo.java_spring_blog.model;
 
 import it.eaffo.java_spring_blog.model.Category;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
@@ -27,20 +29,23 @@ public class Post {
     private String title;
 
     @NotBlank(message = "Campo Obbligatorio")
-    @Column(name = "body", length = 800, nullable = false)
+    @Column(name = "body", length = 10000, nullable = false)
     private String body;
 
     @NotBlank(message = "Campo Obbligatorio")
     @Column(name = "photo", nullable = false)
     private String photoPath;
 
+    @Column(name = "date", nullable = true)
+    private LocalDateTime post_date;
+
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     @JsonBackReference
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = true)
     @JsonBackReference
     private Category category;
 
@@ -80,6 +85,10 @@ public class Post {
 
     public User getUser() {
         return user;
+    }
+
+    public LocalDateTime getPost_date() {
+        return post_date;
     }
 
     public void setUser(User user) {
