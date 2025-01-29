@@ -20,7 +20,7 @@
 
     <main>
         <!-- FORM -->
-        <form th:action="@{/newPost}" th:object="${post}" method="post">
+        <form th:action="@{/newPost}" th:object="${post}" method="post" enctype="multipart/form-data">
 
             <!-- TITLE -->
 
@@ -59,6 +59,14 @@
                         th:text="${category.categoryName}">
                     </option>
                 </select>
+            </div>
+
+            <!-- PHOTO -->
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Seleziona una foto</label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+
             </div>
 
             <!-- BUTTON -->

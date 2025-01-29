@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "POST")
@@ -32,9 +33,9 @@ public class Post {
     @Column(name = "body", length = 20000, nullable = false)
     private String body;
 
-    // @NotBlank(message = "Campo Obbligatorio")
+    // @NotNull(message = "Campo Obbligatorio")
     @Column(name = "photo", nullable = true)
-    private String photoPath;
+    private String imageUrl;
 
     @Column(name = "date", nullable = true)
     private LocalDateTime post_date;
@@ -75,12 +76,12 @@ public class Post {
         this.body = body;
     }
 
-    public String getPhotoPath() {
-        return photoPath;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public User getUser() {
