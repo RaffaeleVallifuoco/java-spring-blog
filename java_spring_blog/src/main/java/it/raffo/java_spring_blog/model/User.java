@@ -1,4 +1,4 @@
-package it.eaffo.java_spring_blog.model;
+package it.raffo.java_spring_blog.model;
 
 import java.util.List;
 import java.util.Set;

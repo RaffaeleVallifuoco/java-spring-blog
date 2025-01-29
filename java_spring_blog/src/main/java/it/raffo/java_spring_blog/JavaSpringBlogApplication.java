@@ -1,4 +1,4 @@
-package it.eaffo.java_spring_blog;
+package it.raffo.java_spring_blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

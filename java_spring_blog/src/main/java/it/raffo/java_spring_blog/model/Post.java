@@ -1,6 +1,6 @@
-package it.eaffo.java_spring_blog.model;
+package it.raffo.java_spring_blog.model;
 
-import it.eaffo.java_spring_blog.model.Category;
+import it.raffo.java_spring_blog.model.Category;
 
 import java.time.LocalDateTime;
 
@@ -25,15 +25,15 @@ public class Post {
     private Integer id;
 
     @NotBlank(message = "Campo Obbligatorio")
-    @Column(name = "title", length = 30, nullable = false)
+    @Column(name = "title", length = 100, nullable = false)
     private String title;
 
     @NotBlank(message = "Campo Obbligatorio")
-    @Column(name = "body", length = 10000, nullable = false)
+    @Column(name = "body", length = 20000, nullable = false)
     private String body;
 
-    @NotBlank(message = "Campo Obbligatorio")
-    @Column(name = "photo", nullable = false)
+    // @NotBlank(message = "Campo Obbligatorio")
+    @Column(name = "photo", nullable = true)
     private String photoPath;
 
     @Column(name = "date", nullable = true)
@@ -89,6 +89,10 @@ public class Post {
 
     public LocalDateTime getPost_date() {
         return post_date;
+    }
+
+    public void setPost_date(LocalDateTime post_date) {
+        this.post_date = post_date;
     }
 
     public void setUser(User user) {

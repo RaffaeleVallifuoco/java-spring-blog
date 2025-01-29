@@ -1,4 +1,4 @@
-package it.eaffo.java_spring_blog.model;
+package it.raffo.java_spring_blog.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
