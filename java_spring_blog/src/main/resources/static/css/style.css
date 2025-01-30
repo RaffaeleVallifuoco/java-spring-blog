@@ -1,0 +1,54 @@
+.glass {
+    background: rgba(36, 36, 36, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.glass_nav {
+    background: rgba(52, 0, 78, 0.7);
+    backdrop-filter: blur(14px);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bg_color {
+    background: rgba(20, 20, 20, 1);
+}
+
+.card_bg {
+    background: rgba(51, 51, 51, 0.4);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    font-size: small;
+    color: rgb(199, 198, 198);
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
