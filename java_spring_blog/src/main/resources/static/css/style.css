@@ -18,6 +18,9 @@
 
 .bg_color {
     background: rgba(20, 20, 20, 1);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
 }
 
 .card_bg {
@@ -52,3 +55,27 @@
     -webkit-box-orient: vertical;
 }
 
+.bg-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    z-index: 1;
+}
+
+.bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.overflow {
+    overflow: visible;
+    height: 100%;
+}
