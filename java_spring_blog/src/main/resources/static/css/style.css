@@ -37,7 +37,6 @@
     backdrop-filter: blur(12px);
     border: 0px solid rgba(102, 102, 102, 0.229);
     border-radius: 30px;
-    padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -91,4 +90,24 @@
 
 .accent {
     color: rgb(82, 115, 125);
+}
+
+.profile_img {
+    width: 160px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    overflow: hidden;
+    margin-left:25px;
+}
+
+.profile_img_container {
+    width: 200px;
+    height: 200px;
+    /* Altezza uguale alla larghezza per garantire che sia rotonda */
+    border-radius: 50%;
+    /* Rende il contenitore rotondo */
+    overflow: hidden;
+    /* Nasconde l'immagine che fuoriesce */
 }

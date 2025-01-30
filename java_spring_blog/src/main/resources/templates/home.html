@@ -90,9 +90,14 @@
                         </div>
                     </div>
                     <!-- RIGHT COL  -->
-                    <div class="col-lg-2 mt-4">
+                    <div class="col-lg-2">
+                        <!-- PHOTO  -->
+                         <div class="profile_img_container">
+                            <img th:src="@{/img/raffProfileBG-rounded.png}" alt="RaffoV" class="profile_img">
+                        </div>
+                        <p class="text-white text-center my-1">RaffoTECH</p>
                         <!-- CAROUSEL -->
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel">
                             <div id="postCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 100%;">
                                 <div class="carousel-inner" style="height: 100%">
                                     <div class="carousel-item" th:each="post, iter : ${post}"
