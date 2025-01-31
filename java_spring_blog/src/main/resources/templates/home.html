@@ -39,19 +39,15 @@
                     <ul class="navbar-nav me-auto my-3 mb-lg-0 d-flex text-end">
                         <li>
                             <form class="d-flex ms-auto w-25 opacity-50" role="search">
-                                <input type="text" name="title" class="form-control me-2 border-0 rounded"
-                                    placeholder="Filtra per titolo" aria-label="Cerca per titolo">
+                                <input type="text" name="searchContent" class="form-control me-2 border-0 rounded"
+                                    placeholder="Filtra per titolo" aria-label="Cerca nel sito">
                                 <button class="btn btn-outline-tertiary rounded" type="submit">Vai</button>
                             </form>
-                            <form class="d-flex my-2 ms-auto w-25 opacity-50" role="search">
-                                <input type="text" name="body" class="form-control me-2 border-0 rounded"
-                                    placeholder="Filtra per contenuto" aria-label="Cerca per contenuto">
-                                <button class="btn btn-outline-tertiary rounded" type="submit">Vai</button>
                         </li>
                         <li>
                             <div class="fs-6 opacity-50">
                                 <a class="btn btn-dark  p-2 icon-link icon-link-hover text-decoration-none  text-white rounded-pill"
-                                    th:href="@{/ticket/admin}">
+                                    th:href="@{/home}">
                                     <i class="bi bi-x" style="color: rgb(255, 255, 255);"></i>
                                     <span class="fs-6 mt-1"> rimuovi filtri</span>
                                 </a>

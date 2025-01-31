@@ -46,19 +46,19 @@ public class Index {
     private static final String UPLOAD_DIR = "src/main/resources/static/uploads/";
 
     @GetMapping("/home")
-    public String home(Model model, @RequestParam(name = "postTitle", required = false) String postTitle,
-            @RequestParam(name = "contentBody", required = false) String contentBody) {
+    public String home(Model model, @RequestParam(name = "searchContent", required = false) String searchContent,
+            @RequestParam(name = "categoryName", required = false) String categoryName) {
 
         List<Post> posts = new ArrayList<>();
 
-        if (postTitle == null && contentBody == null) {
+        if ((searchContent == null || searchContent.isEmpty()) && (categoryName == null || categoryName.isEmpty())) {
             posts = postRepo.findAll();
             posts.sort(Comparator.comparing(Post::getPost_date).reversed());
-        } else if (postTitle == null) {
-            posts = postRepo.findByBodyContainingIgnoreCase(contentBody);
+        } else if (categoryName == null || categoryName.isEmpty()) {
+            posts = postRepo.findByTitleContainingIgnoreCaseOrBodyContainingIgnoreCase(searchContent);
             posts.sort(Comparator.comparing(Post::getPost_date).reversed());
         } else {
-            posts = postRepo.findByTitleContainingIgnoreCase(postTitle);
+            posts = postRepo.findByCategory_CategoryNameContainingIgnoreCase(categoryName);
             posts.sort(Comparator.comparing(Post::getPost_date).reversed());
         }
 
