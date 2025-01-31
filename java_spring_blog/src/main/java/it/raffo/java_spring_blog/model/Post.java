@@ -26,11 +26,11 @@ public class Post {
     private Integer id;
 
     @NotBlank(message = "Campo Obbligatorio")
-    @Column(name = "title", length = 100, nullable = false)
+    @Column(name = "title", length = 200, nullable = false)
     private String title;
 
     @NotBlank(message = "Campo Obbligatorio")
-    @Column(name = "body", length = 20000, nullable = false)
+    @Column(name = "body", length = 40000, nullable = false)
     private String body;
 
     // @NotNull(message = "Campo Obbligatorio")

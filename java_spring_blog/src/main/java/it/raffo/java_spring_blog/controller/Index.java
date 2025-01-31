@@ -63,6 +63,8 @@ public class Index {
         }
 
         model.addAttribute("post", posts);
+        List<Post> lastFourPosts = posts.size() > 4 ? posts.subList(posts.size() - 4, posts.size()) : posts;
+        model.addAttribute("lastFourPost", lastFourPosts);
 
         return "home";
     }

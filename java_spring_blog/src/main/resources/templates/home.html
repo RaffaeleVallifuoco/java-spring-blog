@@ -71,19 +71,21 @@
                 <div class="row d-flex">
                     <!-- LEFT COL -->
                     <div class="col-lg-10">
-                        <div class="row">
+                        <div class="row g-8">
                             <!-- CARD -->
-                            <div class="col-lg-3 my-4" th:each="post : ${post}">
+                            <div class="col-lg-4 my-4" th:each="post, iter : ${post}" th:classappend="${iter.index == 0} ? 'card-highlight' : ''">
                                 <div class="card card_bg">
                                     <div class="card-body card_body">
                                         <!-- IMG -->
                                         <img th:src="@{/uploads/{imageName}(imageName=${post.imageUrl})}" alt="Photo"
-                                            class="img-fluid w-100 rounded-pill py-3" style="max-height: 100px; object-fit: cover;">
+                                            class="img-fluid w-200 py-2 card_img">
                                         <!-- TITLE -->
                                         <h5 class="card-title fs-4 m-2" th:text="${post.title}"></h5>
                                         <!-- BODY  -->
-                                        <p class="card-text" th:text="${#strings.abbreviate(post.body, 70)}"></p>
+                                        <p class="card-text" th:text="${#strings.abbreviate(post.body, 180)}"></p>
                                         <a href="#" class="accent text-decoration-none fs-6">continua a leggere</a>
+                                        <a th:href="@{/}" class="accent_category text-decoration-none" th:text="${post.category.categoryName}">
+                                            più</a>
                                     </div>
                                 </div>
                             </div>
@@ -93,21 +95,21 @@
                     <div class="col-lg-2">
                         <!-- PHOTO  -->
                          <div class="profile_img_container">
-                            <img th:src="@{/img/raffProfileBG-rounded.png}" alt="RaffoV" class="profile_img">
+                            <img th:src="@{/img/raffProfileRoundedNoBg.png}" alt="RaffoV" class="profile_img mt-5">
                         </div>
-                        <p class="text-white text-center my-1">RaffoTECH</p>
+                        <p class="text-white text-center my-4 py-4 fs-4">RaffoTECH</p>
                         <!-- CAROUSEL -->
                         <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel">
+                            <div class="fs-6 text-center">ULTIMI ARTICOLI</div>
                             <div id="postCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 100%;">
                                 <div class="carousel-inner" style="height: 100%">
-                                    <div class="carousel-item" th:each="post, iter : ${post}"
+                                    <div class="carousel-item" th:each="post, iter : ${lastFourPost}"
                                         th:classappend="${iter.index == 0} ? 'active'" style="height: 100%">
-                                        <div class="card carousel_card_bg">
+                                        <div class="carousel_card carousel_card_bg">
                                             <div class="card-body card_body">
-                                                <img th:src="@{/uploads/{imageName}(imageName=${post.imageUrl})}" alt="Photo" class="img-fluid w-100 rounded-pill py-3"
-                                                    style="max-height: 100px; object-fit: cover;">
+                                                <img th:src="@{/uploads/{imageName}(imageName=${post.imageUrl})}" alt="Photo" class="img-fluid w-100 py-3 card_img">
                                                 <h5 class="card-title" th:text="${post.title}"></h5>
-                                                <p class="card-text" th:text="${#strings.abbreviate(post.body, 2000)}">
+                                                <p class="card-text" th:text="${#strings.abbreviate(post.body, 250)}">
                                                 </p>
                                                 <!-- <a th:href="@{/post/{id}(id=${post.id})}" class="btn btn-primary">Leggi
                                                     di
