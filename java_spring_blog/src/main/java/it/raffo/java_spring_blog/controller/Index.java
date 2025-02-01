@@ -21,6 +21,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -69,6 +70,14 @@ public class Index {
         return "home";
     }
 
+    @GetMapping("/home/detail")
+    public String postDetail(@PathVariable("id") Integer id, Model model) {
+
+        Post posts = postRepo.getReferenceById(id);
+        model.addAttribute("post", posts);
+        return "/detail";
+    }
+
     @GetMapping("/newPost")
     public String newPost(Model model) {
         // TODO: process POST request
@@ -115,7 +124,7 @@ public class Index {
             insertFormPost.setImageUrl(fileName);
         }
 
-        // Imposta la data del post
+        // Imposta la data del post@@@
         insertFormPost.setPost_date(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
 
         // Salva il post nel database

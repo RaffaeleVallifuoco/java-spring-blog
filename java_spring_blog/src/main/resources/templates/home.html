@@ -11,6 +11,10 @@
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'
         integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    
 </head>
 
 
@@ -24,16 +28,17 @@
                     RaffoTECH
                 </a>
                 <div class=" me-auto mx-4 ">
-                    <a class="text-decoration-none text-white mx-4" href="">Home</a>
-                    <a class="text-decoration-none text-white mx-4" href="">News</a>
-                    <a class="text-decoration-none text-white mx-4" href="">Tecnologia</a>
-                    <a class="text-decoration-none text-white mx-4" href="">Curiosità</a>
+                    <a class="text-decoration-none text-white mx-4" href="/home">Home</a>
+                    <a class="text-decoration-none text-white mx-4" href="/home?categoryName=tech">Tecnologia</a>
+                    <a class="text-decoration-none text-white mx-4" href="/home?categoryName=Smartphone">Smartphone</a>
+                    <a class="text-decoration-none text-white mx-4" href="/home?categoryName=utility">Curiosità</a>
+                    <a class="text-decoration-none text-white mx-4" href="/home?categoryName=game">Game</a>
                 </div>
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                        <i class="bi bi-search fs-4 fw-bold"></i>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto my-3 mb-lg-0 d-flex text-end">
@@ -41,7 +46,7 @@
                             <form class="d-flex ms-auto w-25 opacity-50" role="search">
                                 <input type="text" name="searchContent" class="form-control me-2 border-0 rounded"
                                     placeholder="Filtra per titolo" aria-label="Cerca nel sito">
-                                <button class="btn btn-outline-tertiary rounded" type="submit">Vai</button>
+                                <button class="btn mdb-button btn-outline-tertiary rounded" type="submit">Vai</button>
                             </form>
                         </li>
                         <li>
@@ -61,10 +66,10 @@
 
     <!-- MAIN -->
 
-    <main class="bg_color overflow">
-        <div class="bg-color overflow">
+    <main>
+        <div class="bg_color overflow">
             <div class="container bg_color pt-5 bg-image" th:style="'background-image: url(' + @{/img/back2.jpg} + ');'">
-                <div class="row d-flex">
+                <div class="row d-flex justify-content-between me-4 pe-4 ms-4 ps-4" style="min-width: 90vw;">
                     <!-- LEFT COL -->
                     <div class="col-lg-10">
                         <div class="row g-8">
@@ -76,12 +81,14 @@
                                         <img th:src="@{/uploads/{imageName}(imageName=${post.imageUrl})}" alt="Photo"
                                             class="img-fluid w-200 py-2 card_img">
                                         <!-- TITLE -->
+                                        <a th:href="@{/home(categoryName=${post.category.categoryName})}" class="accent_category text-decoration-none ms-auto"
+                                            th:text="${post.category.categoryName}">Categoria</a>
+
+                                        </a>
                                         <h5 class="card-title fs-4 m-2" th:text="${post.title}"></h5>
                                         <!-- BODY  -->
-                                        <p class="card-text" th:text="${#strings.abbreviate(post.body, 180)}"></p>
-                                        <a href="#" class="accent text-decoration-none fs-6">continua a leggere</a>
-                                        <a th:href="@{/}" class="accent_category text-decoration-none" th:text="${post.category.categoryName}">
-                                            più</a>
+                                        <p class="card-text" th:text="${#strings.abbreviate(post.body, 300)}"></p>
+                                        <a href="#" class=" mdb-button text-decoration-none fs-6">continua a leggere</a>
                                     </div>
                                 </div>
                             </div>
@@ -91,12 +98,12 @@
                     <div class="col-lg-2">
                         <!-- PHOTO  -->
                          <div class="profile_img_container">
-                            <img th:src="@{/img/raffProfileRoundedNoBg.png}" alt="RaffoV" class="profile_img mt-5">
+                            <img th:src="@{/img/raffCircle1.png}" alt="RaffoV" class="profile_img mt-5">
                         </div>
                         <p class="text-white text-center my-4 py-4 fs-4">RaffoTECH</p>
                         <!-- CAROUSEL -->
                         <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel">
-                            <div class="fs-6 text-center">ULTIMI ARTICOLI</div>
+                            <div class="fs-6 text-center accent">ULTIMI ARTICOLI</div>
                             <div id="postCarousel" class="carousel slide" data-bs-ride="carousel" style="height: 100%;">
                                 <div class="carousel-inner" style="height: 100%">
                                     <div class="carousel-item" th:each="post, iter : ${lastFourPost}"
@@ -134,31 +141,30 @@
 
 
 
-    <footer>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quae laboriosam laudantium rerum, esse nihil
-            molestias eligendi ea excepturi temporibus deserunt, assumenda perferendis praesentium, sequi doloremque
-            officiis eaque maxime nam consequuntur quos amet placeat quia! Ea odio corrupti non quia harum accusantium
-            tempore fugit labore amet. Excepturi facilis id modi vel molestiae nisi reiciendis explicabo, dolorum nobis.
-            Culpa modi repellendus, cupiditate laudantium quasi quisquam deleniti. Aperiam assumenda accusantium
-            aliquid, quos itaque iste tempore sit beatae debitis aspernatur earum ipsa culpa? Doloremque, debitis. Odio
-            sunt placeat ipsa tempore mollitia, nam repellendus distinctio, ullam perferendis, quos asperiores ducimus
-            voluptatem vero magnam sapiente? Commodi quasi quisquam maiores et officiis? Quia velit nostrum, odio,
-            recusandae officia minus minima, repellat nihil sint cupiditate eveniet laboriosam quos? Eaque doloribus
-            deleniti aut nobis fuga atque numquam rem nam, fugiat sit nulla maiores natus beatae, esse perferendis
-            reprehenderit! Iure quia veritatis nesciunt, culpa voluptatibus pariatur magnam est tenetur, autem beatae
-            animi aliquid reprehenderit omnis dolore ipsum ut ipsam ex cumque sint! Ab sit ducimus quos adipisci
-            recusandae fugiat. Pariatur aperiam deleniti voluptatum quibusdam sequi sunt possimus quis fugiat dolore
-            repellat, consectetur placeat molestias, delectus reprehenderit quasi iusto excepturi harum voluptas, autem
-            consequatur in corrupti eveniet dignissimos. Autem quis quae nihil, in quibusdam voluptatum recusandae ullam
-            quasi ipsum commodi unde quia, aspernatur voluptate, obcaecati libero. Maxime fuga repellendus ad minima
-            perferendis, nam quae harum dolor possimus ut a, assumenda sed non, ab porro iste illo esse. Magnam quod
-            facere non autem vitae molestiae, veritatis blanditiis enim, obcaecati molestias minus soluta laudantium id
-            rem totam voluptatum ipsa. In temporibus laudantium, sapiente rem nam ea facilis fuga recusandae, quaerat
-            minus corrupti numquam quas similique perferendis aliquid? Incidunt, quos magni natus quasi omnis saepe
-            molestias? Tempore ipsam quasi adipisci corporis unde neque in, nemo cupiditate. Voluptatum hic mollitia
-            unde error voluptatem tenetur deserunt ab, voluptate adipisci harum iusto corrupti minus autem. Laudantium
-            cum consequatur recusandae.
-        </p>
+    <footer class="footer_color">
+        <div class="container my-6 py-5">
+            <div class="row">
+                <div class="col-4 ">
+                    <img class="footer_image" th:src="@{/img/RAtech-trasparent.png}" alt="ratech logo" >
+                </div>
+                <div class="col-3">
+                    <h4>RaffoTECH</h4>
+                    <p class="fs-6 mt-4">Blog di tecnologia scritto da un appassionato, per gli appassionati-</p>
+                </div>
+                <div class="col-3">
+                    <h4 class="mb-4">Social Media Links</h4>
+                    <a href="https://github.com/RaffaeleVallifuoco">
+                        <i class="bi bi-github text-white fs-2 mx-2"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/raffov/">
+                        <i class="bi bi-linkedin text-white fs-2 mx-2"></i>
+                    </a>
+                    <a href="mailto:raff.vallifuoco@gmail.com">
+                        <i class="bi bi-envelope text-white fs-2 mx-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
 
@@ -166,6 +172,8 @@
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
         integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
         crossorigin='anonymous'></script>
+        <script src="js/mdb.min.js"></script>
+
 
 </body>
 

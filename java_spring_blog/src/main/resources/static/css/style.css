@@ -1,26 +1,71 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
 .glass {
-    background: rgba(36, 36, 36, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(36, 36, 36, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
 }
 
 .glass_nav {
-    background: rgba(52, 0, 78, 0.7);
+    background: linear-gradient(to bottom, rgba(100, 25, 133, 0.534), rgba(54, 14, 103, 0.54));
     backdrop-filter: blur(14px);
-    /* border: 1px solid rgba(255, 255, 255, 0.1); */
-    border-radius: 18px;
+    border-radius: 60px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.mdb-button {
+    background-color: #6200ea;
+    /* Material Primary */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.mdb-button:hover {
+    background-color: #3700b3;
+    /* Material Hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .bg_color {
-    background: rgba(20, 20, 20, 1);
-    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.987);
+    min-height: 160vh;
+    min-width: 100vw;
     background-size: cover;
     background-position: center;
+}
+
+.bg-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100vw;
+    z-index: 1;
+}
+
+.bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
 .card_bg {
@@ -41,26 +86,38 @@
 }
 
 .card {
-    height: 450px;
+    height: 600px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
 }
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
 
 .carousel_card {
     height: 450px;
     display: flex;
     flex-direction: column;
     transition: transform 0.4s ease;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .card:hover {
     transform: scale(1.2);
     z-index: 2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        */
+    */
 }
+
 .card_img {
+    min-height: 200px;
     max-height: 200px;
     object-fit: cover;
     border-radius: 30px;
@@ -86,39 +143,13 @@
     -webkit-box-orient: vertical;
 }
 
-.card-highlight {
-    /* transform: scale(1.4);
-    z-index: 2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
-}
-
-.bg-image {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100%;
-    z-index: 1;
-}
-
-.bg-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: -1;
-}
-
 .overflow {
     overflow: visible;
     height: 100%;
 }
 
 .accent {
-    color: rgb(82, 115, 125);
+    color: rgb(198, 153, 209);
 }
 
 .accent_category {
@@ -126,10 +157,8 @@
 }
 
 .profile_img {
-    width: 200px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
+    height: 80%;
+    object-fit: fill;
     display: block;
     overflow: hidden;
     margin-left: 25px;
@@ -137,10 +166,32 @@
 
 .profile_img_container {
     width: 200px;
-    height: 200px;
-    /* Altezza uguale alla larghezza per garantire che sia rotonda */
+    height: 300px;
     border-radius: 50%;
-    /* Rende il contenitore rotondo */
     overflow: hidden;
-    /* Nasconde l'immagine che fuoriesce */
+}
+
+.separator {
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Colore del separatore */
+    height: 100%;
+    /* Altezze varie a seconda del contenuto */
+}
+
+.footer_image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 220px;
+    height: 200px;
+    z-index: 1;
+}
+
+.footer_color {
+    background: rgba(20, 20, 20, 1);
+    min-height: 20vh;
+    background-size: cover;
+    background-position: center;
 }
